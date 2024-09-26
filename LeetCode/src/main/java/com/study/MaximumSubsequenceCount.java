@@ -41,6 +41,7 @@ package com.study;
  * text 和 pattern 都只包含小写英文字母。
  */
 public class MaximumSubsequenceCount {
+    // 第一种：一个劲的遍历管他三七二十一直接每种情况都判断
     public long maximumSubsequenceCount(String text, String pattern) {
         // 第一个元素
         char p0 = pattern.charAt(0);
@@ -65,6 +66,25 @@ public class MaximumSubsequenceCount {
         return res;
     }
 
+    // 第二种：只有第一个插入到第0个获取，第二个插入到最后一个时候才会得到最大，只用判断两种就行
+    public long maximumSubsequenceCount2(String text, String pattern) {
+        // 第一个元素
+        char p0 = pattern.charAt(0);
+        // 第二个元素
+        char p1 = pattern.charAt(1);
+        Long res = 0L;
+        // 第一种：使用第一个元素进行插入
+        String newText0 = p0 + text;
+        // 对第一种情况进行处理拿到个数，并当作最终结果
+        Long res0 = handle(newText0, p0, p1);
+        // 第二种：使用第第二个元素进行插入
+        String newText1 = text + p1;
+        // 对第二种情况进行处理拿到个数
+        Long res1 = handle(newText1, p0, p1);
+        // 比较得到最大个数
+        return Math.max(res0, res1);
+    }
+
     /**
      * 遍历每一种插入后的结果
      *
@@ -82,7 +102,7 @@ public class MaximumSubsequenceCount {
             if (c == p1) {
                 r += p0Count;
             }
-            // 新的字符串中有多少个p0
+            // 新的字符串中有多少个p0，需要放在第一个元素后解决 两元素相同问题
             if (c == p0) {
                 p0Count++;
             }
