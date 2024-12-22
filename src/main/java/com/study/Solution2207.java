@@ -40,7 +40,7 @@ package com.study;
  * pattern.length == 2
  * text 和 pattern 都只包含小写英文字母。
  */
-public class MaximumSubsequenceCount {
+public class Solution2207 {
     // 第一种：一个劲的遍历管他三七二十一直接每种情况都判断
     public long maximumSubsequenceCount(String text, String pattern) {
         // 第一个元素
@@ -111,7 +111,7 @@ public class MaximumSubsequenceCount {
     }
 
     public static void main(String[] args) {
-        MaximumSubsequenceCount ms = new MaximumSubsequenceCount();
+        Solution2207 ms = new Solution2207();
         String text = "zigfj";
         String pattern = "ju";
         long l1 = ms.maximumSubsequenceCount(text, pattern);

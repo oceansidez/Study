@@ -55,7 +55,7 @@ import java.util.*;
  * @author zzh
  * @date 2024/9/29 15:38
  */
-public class TimeRequiredToBuy {
+public class Solution2073 {
 
     public int timeRequiredToBuy(int[] tickets, int k) {
         int res = 0;  // 用来记录总共花费的时间
@@ -89,7 +89,7 @@ public class TimeRequiredToBuy {
     }
 
     public static void main(String[] args) {
-        TimeRequiredToBuy timeRequiredToBuy = new TimeRequiredToBuy();
+        Solution2073 timeRequiredToBuy = new Solution2073();
         int[] tickets = new int[]{2, 3, 2};
         int k = 2;
         System.out.println("timeRequiredToBuy.timeRequiredToBuy(tickets, k) = " + timeRequiredToBuy.timeRequiredToBuy(tickets, k));

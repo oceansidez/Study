@@ -43,7 +43,7 @@ package com.study;
  * @author zzh
  * @date 2024/9/26 10:18
  */
-public class DifferenceOfSum {
+public class Solution2352 {
     // 第一种 分割字符串方式
     public int differenceOfSum(int[] nums) {
         // 元素和
@@ -80,7 +80,7 @@ public class DifferenceOfSum {
     }
 
     public static void main(String[] args) {
-        DifferenceOfSum differenceOfSum = new DifferenceOfSum();
+        Solution2352 differenceOfSum = new Solution2352();
         int[] nums1 = new int[]{1, 15, 6, 3};
         int[] nums2 = new int[]{1, 2, 3, 4};
         System.out.println("differenceOfSum(nums1) = " + differenceOfSum.differenceOfSum(nums1));
