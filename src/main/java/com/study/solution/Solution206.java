@@ -1,4 +1,4 @@
-package com.study;
+package com.study.solution;
 
 /**
  * 206.反转链表

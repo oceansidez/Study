@@ -1,4 +1,4 @@
-package com.study;
+package com.study.solution;
 
 /**
  * https://leetcode.cn/problems/difference-between-element-sum-and-digit-sum-of-an-array/description/
