@@ -4,33 +4,6 @@ package com.study;
 /**
  * https://leetcode.cn/problems/longest-palindromic-substring/description/
  * 5. 最长回文子串
- * 中等
- * 相关标签
- * 相关企业
- * 提示
- * 给你一个字符串 s，找到 s 中最长的
- * 回文
- * <p>
- * 子串
- * 。
- * <p>
- * <p>
- * <p>
- * 示例 1：
- * <p>
- * 输入：s = "babad"
- * 输出："bab"
- * 解释："aba" 同样是符合题意的答案。
- * 示例 2：
- * <p>
- * 输入：s = "cbbd"
- * 输出："bb"
- * <p>
- * <p>
- * 提示：
- * <p>
- * 1 <= s.length <= 1000
- * s 仅由数字和英文字母组成
  *
  * @author zzh
  * @date 2024/9/26 18:02
