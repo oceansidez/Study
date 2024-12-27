@@ -1,4 +1,4 @@
-package com.study.solution;
+package com.study.leetcode;
 
 /**
  * 206.反转链表
