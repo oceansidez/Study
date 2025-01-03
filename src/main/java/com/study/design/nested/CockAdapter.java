@@ -4,6 +4,7 @@ package com.study.design.nested;
 public class CockAdapter implements Duck {
 
     Cock cock;
+
     // 构造方法中需要一个鸡的实例，此类就是将这只鸡适配成鸭来用
     public CockAdapter(Cock cock) {
         this.cock = cock;

@@ -8,7 +8,7 @@ package com.study.design.decoration;
 public class Main {
     public static void main(String[] args) {
         Beverage greenTea = new GreenTea();
-        greenTea= new Lemon(greenTea);
+        greenTea = new Lemon(greenTea);
         greenTea = new Mango(greenTea);
         System.out.println(greenTea.getDescription() + " 价格：￥" + greenTea.cost());
 

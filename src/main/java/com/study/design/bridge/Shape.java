@@ -5,10 +5,12 @@ package com.study.design.bridge;
  * @date 2024/12/20 15:18
  * @description:
  */
-public  abstract class Shape {
+public abstract class Shape {
     protected DrawAPI drawAPI;
+
     protected Shape(DrawAPI drawAPI) {
         this.drawAPI = drawAPI;
     }
+
     public abstract void draw();
 }

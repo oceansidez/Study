@@ -1,6 +1,7 @@
 package com.study.leetcode;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 2073. 买票需要的时间

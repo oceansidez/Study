@@ -5,6 +5,7 @@ public class HexaObserver extends Observer {
         this.subject = subject;
         this.subject.addObserver(this);
     }
+
     @Override
     public void update() {
         String result = Integer.toHexString(subject.getState()).toUpperCase();
