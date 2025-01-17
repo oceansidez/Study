@@ -16,6 +16,7 @@ import java.util.Random;
 public class ConditionalConfig {
 
     @Bean
+    // 成立才会注入
     @Conditional(RandBooleanCondition.class)
     public RandomDataSupplier<Boolean> randBooleanComponent() {
 
