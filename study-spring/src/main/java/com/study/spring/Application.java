@@ -2,17 +2,16 @@ package com.study.spring;
 
 //import com.study.spring.bean.MessageHandler;
 
-import com.study.spring.aop.MyService;
-import com.study.spring.bean.StudyBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * <h1>应用程序启动入口</h1>
  */
 @SpringBootApplication
+@EnableAsync
 @EnableAspectJAutoProxy(exposeProxy = true)
 public class Application {
 
