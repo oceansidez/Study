@@ -41,7 +41,7 @@ public class CouponHandlerFactory implements BeanPostProcessor {
             // TODO 是不是可以对 bean 进行校验，如没加上注解可以抛出异常等待
             // 绑定对应关系
             serviceMap.put(annotation.value(), (ICouponHandlerService) bean);
-            log.info("添加serviceMap成功....");
+            log.info("添加serviceMap{}成功....",annotation.value());
         }
 
         return bean;

@@ -27,7 +27,7 @@
 	</dependencies>
 
     <build>
-        <finalName>base-study</finalName>
+        <finalName>study-base</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

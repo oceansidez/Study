@@ -15,5 +15,5 @@ public class CycleA {
 
 //    /** field 属性注入循环依赖, IOC 容器可能会解决掉 */
 //    @Autowired
-//    private ImoocCycleB b;
+//    private CycleB b;
 }
