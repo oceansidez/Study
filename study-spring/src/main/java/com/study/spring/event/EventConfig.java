@@ -1,27 +1,20 @@
-package com.study.spring.async;
-
+package com.study.spring.event;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.AsyncConfigurer;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import java.lang.reflect.Method;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
-/**
- * <h1>异步任务的相关配置</h1>
- * 全局的配置默认线程池 AsyncConfigurer，也可设置@Bean的方式，在@Sync中指定线程池
- * 如果没配置使用的默认线程，注意需要开启 @EnableAsync
- */
 @Slf4j
+@EnableAsync
 @Configuration
-public class AsyncConfigurationA implements AsyncConfigurer {
+public class EventConfig {
 
-    @Override
-    public Executor getAsyncExecutor() {
+    @Bean("threadPoolTaskExecutor")
+    public ThreadPoolTaskExecutor taskExecutor() {
         // 获取处理器
         int cpuCount = Runtime.getRuntime().availableProcessors();
         // 构建线程池 使用spring封装的
@@ -30,7 +23,7 @@ public class AsyncConfigurationA implements AsyncConfigurer {
         taskExecutor.setMaxPoolSize(cpuCount * 4);
         taskExecutor.setQueueCapacity(50000);
         taskExecutor.setKeepAliveSeconds(60);
-        taskExecutor.setThreadNamePrefix("my-asyncA-");
+        taskExecutor.setThreadNamePrefix("my-asyncC-");
         // 拒绝策略
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         // 等待线程完成才关闭现称池
@@ -39,16 +32,5 @@ public class AsyncConfigurationA implements AsyncConfigurer {
         taskExecutor.setAwaitTerminationSeconds(60);
         taskExecutor.initialize();
         return taskExecutor;
-    }
-
-    @Override
-    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-
-        return new AsyncUncaughtExceptionHandler() {
-            @Override
-            public void handleUncaughtException(Throwable ex, Method method, Object... params) {
-                log.error("....");
-            }
-        };
     }
 }
