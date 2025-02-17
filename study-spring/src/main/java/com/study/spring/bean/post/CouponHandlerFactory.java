@@ -1,6 +1,6 @@
-package com.study.spring.post;
+package com.study.spring.bean.post;
 
-import com.study.spring.post.couponhandler.ICouponHandlerService;
+import com.study.spring.bean.post.couponhandler.ICouponHandlerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

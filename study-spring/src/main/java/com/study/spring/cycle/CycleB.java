@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CycleB {
 
+    /**
+     * 可以使用懒加载解决
+     *
+     * @param a
+     */
     public CycleB(@Lazy CycleA a) {
 
     }

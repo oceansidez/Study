@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ExecutorService;
 
+/**
+ * 并没有加入spring的bean中通过CustomBeanRegistry把MessageHandler做成一个Bean注册到IOC，并自己完成初始化
+ */
 @Slf4j
 public class MessageHandler {
 
@@ -19,10 +22,10 @@ public class MessageHandler {
     }
 
     public void start() {
-        log.info("start.....");
+        log.info("自定义类 MessageHandler start执行.....");
     }
 
     public void close() {
-        log.info("close.....");
+        log.info("自定义类 MessageHandler 执行close.....");
     }
 }

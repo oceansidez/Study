@@ -1,4 +1,4 @@
-package com.study.spring.post;
+package com.study.spring.bean.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

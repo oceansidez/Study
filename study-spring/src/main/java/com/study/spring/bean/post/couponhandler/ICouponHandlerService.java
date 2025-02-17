@@ -1,4 +1,4 @@
-package com.study.spring.post.couponhandler;
+package com.study.spring.bean.post.couponhandler;
 
 /**
  * <h1>coupon 处理器服务接口定义</h1>

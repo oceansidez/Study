@@ -22,7 +22,7 @@ public class StudyBean implements InitializingBean, BeanPostProcessor {
      */
     @PostConstruct
     public void init() {
-        log.info("001...");
+        log.info("在依赖注入完成之后就会执行...");
     }
 
     /**
@@ -30,7 +30,7 @@ public class StudyBean implements InitializingBean, BeanPostProcessor {
      */
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("002...");
+        log.info("完成属性设置之后执行...");
     }
 
     /**
@@ -39,7 +39,8 @@ public class StudyBean implements InitializingBean, BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof IAccountService) {
-            log.info("003....");
+            // todo 可以争对IAccountService 进行操作
+            log.info("IAccountService初始化前置方法执行....");
         }
         // 需要返回bean不然会报错
         return bean;
@@ -51,7 +52,7 @@ public class StudyBean implements InitializingBean, BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof IAccountService) {
-            log.info("004....");
+            log.info("IAccountService初始化后置方法执行....");
         }
         return bean;
     }
@@ -61,6 +62,6 @@ public class StudyBean implements InitializingBean, BeanPostProcessor {
      */
     @PreDestroy
     public void destroy() {
-        log.info("005....");
+        log.info("销毁 bean 的时候回调....");
     }
 }

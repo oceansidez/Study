@@ -1,8 +1,8 @@
-package com.study.spring.post.couponhandler;
+package com.study.spring.bean.post.couponhandler;
 
 
-import com.study.spring.post.CouponHandlerProcessor;
-import com.study.spring.post.CouponTypeEnum;
+import com.study.spring.bean.post.CouponHandlerProcessor;
+import com.study.spring.bean.post.CouponTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -11,8 +11,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @SpringBootApplication
 @EnableAsync
-@EnableAspectJAutoProxy(exposeProxy = true)
-@MapperScan("com.study.spring.mapper")
+@EnableAspectJAutoProxy(exposeProxy = true) // 自己调用自己
+@MapperScan("com.study.spring.**.mapper")
 public class Application {
 
     public static void main(String[] args) {

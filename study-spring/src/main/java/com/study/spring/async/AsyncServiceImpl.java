@@ -23,6 +23,6 @@ public class AsyncServiceImpl implements IAsyncService {
     public Future<String> asyncMethodHasReturn() throws InterruptedException {
         // 业务逻辑
         log.info("异步有返回值执行了.... ");
-        return new AsyncResult<>("测试返回值");
+        return new AsyncResult<>("测试异步调用返回值.... ");
     }
 }

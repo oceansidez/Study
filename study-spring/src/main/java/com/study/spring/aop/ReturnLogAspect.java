@@ -12,14 +12,15 @@ import java.lang.reflect.Method;
 
 /**
  * <h1>方法返回打印日志切面</h1>
- * */
+ */
 @Slf4j
 @Aspect
 @Component
 public class ReturnLogAspect {
 
     @Pointcut("@annotation(com.study.spring.aop.ReturnLog)")
-    private void pointcut() {}
+    private void pointcut() {
+    }
 
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -34,8 +35,9 @@ public class ReturnLogAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         ReturnLog returnLog = method.getAnnotation(ReturnLog.class);
+        String prefix = returnLog.prefix();
         // 记录日志
-        log.info("切面...");
+        log.info("切面执行 ..." + prefix + " " + result);
 
         return result;
     }

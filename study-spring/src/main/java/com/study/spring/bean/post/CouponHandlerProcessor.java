@@ -1,4 +1,4 @@
-package com.study.spring.post;
+package com.study.spring.bean.post;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

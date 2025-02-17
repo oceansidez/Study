@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * 获取ioc容器 方式B
+ * 监听容器的刷新事件
+ */
 @Component
 public class ApplicationContextUtilsB implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -20,5 +24,7 @@ public class ApplicationContextUtilsB implements ApplicationListener<ContextRefr
         }
     }
 
-    //
+    public static ApplicationContext getContext() {
+        return context;
+    }
 }

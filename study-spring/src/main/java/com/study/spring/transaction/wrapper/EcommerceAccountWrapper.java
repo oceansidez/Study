@@ -1,9 +1,9 @@
-package com.study.spring.wrapper;
+package com.study.spring.transaction.wrapper;
 
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 
-import com.study.spring.entity.EcommerceAccount;
-import com.study.spring.mapper.EcommerceAccountMapper;
+import com.study.spring.transaction.entity.EcommerceAccount;
+import com.study.spring.transaction.mapper.EcommerceAccountMapper;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

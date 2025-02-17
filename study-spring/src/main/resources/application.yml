@@ -1,12 +1,13 @@
 spring:
   main:
+    # 告诉spring可能会出现循环依赖，spring自行解决
     allow-circular-references: true
   # 数据源
   datasource:
     # 数据源连接配置
     url: jdbc:mysql://127.0.0.1:3306/ecommerce_data?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: root
+    password: root123456
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 连接池

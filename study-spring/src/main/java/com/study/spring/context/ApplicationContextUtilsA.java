@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * 获取ioc容器 方式A
+ */
 @Component
 public class ApplicationContextUtilsA implements ApplicationContextAware {
 

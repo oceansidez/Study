@@ -1,4 +1,4 @@
-package com.study.spring.entity;
+package com.study.spring.transaction.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -16,14 +16,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <h1>账户表实体类定义</h1>
+ * <h1>账户 vip 信息表实体类定义</h1>
  * */
 @Data
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-@TableName("t_ecommerce_account")
-public class EcommerceAccount implements Serializable {
+@TableName("t_ecommerce_account_vip")
+public class EcommerceAccountVip implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -38,7 +38,6 @@ public class EcommerceAccount implements Serializable {
     private Boolean deleted = Boolean.FALSE;
 
     private Long userId;
-    private String username;
-    private String password;
-    private String extraInfo;
+    private Integer level;
+    private Long points;
 }

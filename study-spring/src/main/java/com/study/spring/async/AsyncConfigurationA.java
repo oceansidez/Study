@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * <h1>异步任务的相关配置</h1>
- * 全局的配置默认线程池 AsyncConfigurer，也可设置@Bean的方式，在@Sync中指定线程池
+ * 全局的配置默认线程池 AsyncConfigurer，也可设置@Bean的方式，在@Async中指定线程池
  * 如果没配置使用的默认线程，注意需要开启 @EnableAsync
  */
 @Slf4j
@@ -41,13 +41,18 @@ public class AsyncConfigurationA implements AsyncConfigurer {
         return taskExecutor;
     }
 
+    /**
+     * 异步异常处理
+     *
+     * @return
+     */
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
 
         return new AsyncUncaughtExceptionHandler() {
             @Override
             public void handleUncaughtException(Throwable ex, Method method, Object... params) {
-                log.error("....");
+                log.error(method.getName() + ex.getMessage() + "异步执行出现异常....");
             }
         };
     }
