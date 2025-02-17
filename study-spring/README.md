@@ -14,4 +14,8 @@ async 异步任务
 conditional 条件注解 条件加载等
 conditional/condition 条件注解应用
 event 事件驱动
+
+springboot/conditional springboot 条件注解，自定义条件注解
+custom-okhttp-spring-boot-starter 自定义starter
+
 ```

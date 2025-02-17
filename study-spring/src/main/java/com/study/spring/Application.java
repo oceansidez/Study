@@ -3,6 +3,7 @@ package com.study.spring;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -13,6 +14,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @EnableAspectJAutoProxy(exposeProxy = true) // 自己调用自己
 @MapperScan("com.study.spring.**.mapper")
+// 扫描自定义包，包名不一致
+@ComponentScan({"com.custom.okhttp"})
 public class Application {
 
     public static void main(String[] args) {
@@ -22,5 +25,4 @@ public class Application {
     // META-INF spring.factories: org.springframework.boot.autoconfigure.EnableAutoConfiguration
     // mvn clean install -Dmaven.test.skip=true
     // pom.xml
-    // ComponentScan
 }

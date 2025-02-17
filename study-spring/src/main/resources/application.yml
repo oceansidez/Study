@@ -24,3 +24,7 @@ spring:
 conditional:
   rand:
     type: int
+
+# 配置自动装配 okhttp starter
+custom:
+  okhttp: auto
