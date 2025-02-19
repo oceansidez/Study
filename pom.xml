@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.study</groupId>
-    <artifactId>spring-boot-study-demo</artifactId>
+    <artifactId>study-demo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>study-base</module>
@@ -13,15 +13,15 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>spring-boot-demo</name>
+    <name>study-demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <spring.boot.version>3.2.1</spring.boot.version>
         <mysql.version>8.0.21</mysql.version>
         <hutool.version>5.4.5</hutool.version>
         <guava.version>29.0-jre</guava.version>
@@ -73,6 +73,41 @@
                 <groupId>eu.bitwalker</groupId>
                 <artifactId>UserAgentUtils</artifactId>
                 <version>${user.agent.version}</version>
+            </dependency>
+            <!-- 工具类  -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.11</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.47</version>
+            </dependency>
+            <!-- mybatis plus -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.21</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- 自定义 okhttp starter -->
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>custom-okhttp-spring-boot-starter</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <!-- disruptor -->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.4.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

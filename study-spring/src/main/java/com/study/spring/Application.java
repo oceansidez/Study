@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAspectJAutoProxy(exposeProxy = true) // 自己调用自己
 @MapperScan("com.study.spring.**.mapper")
 // 扫描自定义包，包名不一致
-@ComponentScan({"com.custom.okhttp"})
+@ComponentScan({"com.custom.okhttp","com.study.spring"})
 public class Application {
 
     public static void main(String[] args) {

@@ -28,3 +28,7 @@ conditional:
 # 配置自动装配 okhttp starter
 custom:
   okhttp: auto
+
+#logging:
+#  level:
+#    org.springframework: DEBUG

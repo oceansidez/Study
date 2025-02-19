@@ -118,9 +118,4 @@ public class CustomBeanRegistry implements BeanDefinitionRegistryPostProcessor {
 
         return definition;
     }
-
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-
-    }
 }
