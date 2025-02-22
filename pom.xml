@@ -12,6 +12,7 @@
         <module>study-spring</module>
         <module>study-mybatis</module>
         <module>study-redis</module>
+        <module>study-rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
