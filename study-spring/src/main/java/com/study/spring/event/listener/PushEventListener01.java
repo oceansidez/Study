@@ -1,7 +1,7 @@
 package com.study.spring.event.listener;
 
 import com.study.spring.event.PushEvent;
-import com.study.spring.event.PushEventMessage;
+import com.study.spring.event.message.PushEventMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;

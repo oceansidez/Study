@@ -31,7 +31,7 @@ public class AsyncConfigurationA implements AsyncConfigurer {
         taskExecutor.setQueueCapacity(50000);
         taskExecutor.setKeepAliveSeconds(60);
         taskExecutor.setThreadNamePrefix("my-asyncA-");
-        // 拒绝策略
+        // 拒绝策略,直接丢弃不做处理
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         // 等待线程完成才关闭现称池
         taskExecutor.setWaitForTasksToCompleteOnShutdown(true);

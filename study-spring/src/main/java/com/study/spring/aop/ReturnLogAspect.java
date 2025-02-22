@@ -37,7 +37,7 @@ public class ReturnLogAspect {
         ReturnLog returnLog = method.getAnnotation(ReturnLog.class);
         String prefix = returnLog.prefix();
         // 记录日志
-        log.info("切面执行 ..." + prefix + " " + result);
+        log.info("切面执行，返回结果为" + prefix + " " + result);
 
         return result;
     }

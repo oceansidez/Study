@@ -22,7 +22,7 @@ public class CouponHandlerFactory implements BeanPostProcessor {
     private static final Map<CouponTypeEnum, ICouponHandlerService> serviceMap = new ConcurrentHashMap<>();
 
     /**
-     * 初始化方法前执行，此时已经生成了对于的bean
+     * 初始化方法前执行，此时已经生成了对于的实例
      *
      * @param bean
      * @param beanName

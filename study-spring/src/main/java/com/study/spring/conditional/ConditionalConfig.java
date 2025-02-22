@@ -26,6 +26,9 @@ public class ConditionalConfig {
         });
     }
 
+    /**
+     * 通过Conditional Bean方法注解控制bean的生成
+     */
     @Bean
     @Conditional(RandIntegerCondition.class)
     public RandomDataSupplier<Integer> randIntComponent() {

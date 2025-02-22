@@ -5,7 +5,7 @@ spring:
   # 数据源
   datasource:
     # 数据源连接配置
-    url: jdbc:mysql://127.0.0.1:3306/ecommerce_data?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/ecommerce_data?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root123456
     type: com.zaxxer.hikari.HikariDataSource
@@ -18,8 +18,11 @@ spring:
       connection-timeout: 30000
       max-lifetime: 45000
       auto-commit: true
-      pool-name: ImoocEngineeringTechnologyHikariCP
+      pool-name: CustomEngineeringTechnologyHikariCP
 
+#排除某些类的自动装配,比如mybatis的,或者在注解中加入exclude @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 conditional:
   rand:
@@ -28,6 +31,11 @@ conditional:
 # 配置自动装配 okhttp starter
 custom:
   okhttp: auto
+# 配置自动装配 redis
+  redis:
+    host: 192.168.12.168
+    port: 6379
+    password: 123456
 
 #logging:
 #  level:

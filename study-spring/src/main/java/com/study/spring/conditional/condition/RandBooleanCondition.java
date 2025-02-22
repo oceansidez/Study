@@ -11,7 +11,7 @@ public class RandBooleanCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-
+        // 获取配置信息
         String type = context.getEnvironment().getProperty("conditional.rand.type");
         return "boolean".equalsIgnoreCase(type);
     }

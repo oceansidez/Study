@@ -167,4 +167,14 @@ public class EcommerceAccountServiceImpl {
         // ...
     }
 
+    /**
+     * 5. 在另一个线程中发生了异常
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void invalid5() {
+        // ...
+        new Thread(() -> {
+            int a = 10 / 0;
+        }).start();
+    }
 }
