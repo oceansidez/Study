@@ -107,21 +107,15 @@ public class Function {
     /**
      * 使用redis限流
      */
-    public void limit() {
+    public Boolean limit() {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();
         redisScript.setResultType(Long.class);
         redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("limit.lua")));
-
-        for (int i = 0; i < 112; i++) {
-            // 相当于每秒一个key
-            String key = "limit:" + System.currentTimeMillis() / 1000; // limit:1705664721
-            // 限流100并发
-            Long result = stringRedisTemplate.execute(redisScript, Arrays.asList(key), String.valueOf(100));
-            if (result == 0) {
-                //需要限流
-                System.out.println("限流了......");
-            }
-        }
+        // 相当于每秒一个key
+        String key = "limit:" + System.currentTimeMillis() / 1000; // limit:1705664721
+        // 限流100并发
+        Long result = stringRedisTemplate.execute(redisScript, Arrays.asList(key), String.valueOf(100));
+        return result == 1 ? true : false;
     }
 
     /**

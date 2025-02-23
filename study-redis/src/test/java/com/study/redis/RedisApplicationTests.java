@@ -48,7 +48,15 @@ class RedisApplicationTests {
      */
     @Test
     void testLimit() {
-        function.limit();
+        for (int i = 0; i < 112; i++) {
+            Boolean result = function.limit();
+            if (!result) {
+                //需要限流
+                System.out.println("限流了......");
+            } else {
+                System.out.println("通过 "+i);
+            }
+        }
     }
 
     /**
