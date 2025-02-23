@@ -1,9 +1,8 @@
 package com.rabbitmq.sender;
 
-import com.rabbitmq.config.RabbitConfig;
-import com.rabbitmq.model.Orders;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
+import com.rabbitmq.config.RabbitConfig2;
+import com.rabbitmq.model.Orders;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
@@ -20,7 +19,7 @@ import java.util.Date;
 
 @Slf4j
 @Component
-public class MessageSender implements RabbitTemplate.ConfirmCallback, RabbitTemplate.ReturnsCallback {
+public class MessageDLXSender implements RabbitTemplate.ConfirmCallback, RabbitTemplate.ReturnsCallback {
 
     //声明一个把对象转成JSON的对象
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -28,17 +27,6 @@ public class MessageSender implements RabbitTemplate.ConfirmCallback, RabbitTemp
     @Resource
     private RabbitTemplate rabbitTemplate;
 
-    /**
-     * 生产者到交换机 confirm
-     * 交换机到队列 return
-     */
-    @PostConstruct
-    public void init() {
-        //把实现了RabbitTemplate.ConfirmCallback的类的对象 设置到 rabbitTemplate里面去
-        rabbitTemplate.setConfirmCallback(this);
-        //把实现了RabbitTemplate.ReturnsCallback的类的对象 设置到 rabbitTemplate里面去
-        rabbitTemplate.setReturnsCallback(this);
-    }
 
     public void sendMessage() throws Exception {
         Orders orders = Orders.builder().id(10739).name("手机").money(new BigDecimal(1999.98)).createTime(new Date()).build();
@@ -53,7 +41,7 @@ public class MessageSender implements RabbitTemplate.ConfirmCallback, RabbitTemp
         CorrelationData correlationData = new CorrelationData("13700000000");
 
         //发送消息  direct.exchange
-        rabbitTemplate.convertAndSend(RabbitConfig.DIRECT_EXCHANGE_NAME, "info", message, correlationData);
+        rabbitTemplate.convertAndSend(RabbitConfig2.EXCHANGE_NAME, RabbitConfig2.ROUTING_KEY_NAME, message, correlationData);
 
         System.out.println("消息发送完毕.");
     }
@@ -82,13 +70,14 @@ public class MessageSender implements RabbitTemplate.ConfirmCallback, RabbitTemp
     /**
      * 消息从 交换机 --> 到 --> 队列，如果失败了，就会回调该方法
      * （失败了才触发该方法，成功是不会触发该方法的）
-     *
+     * <p>
      * 比如说磁盘满
      *
      * @param returned
      */
     @Override
     public void returnedMessage(ReturnedMessage returned) {
+        System.out.println("交换机到队列出现错误...");
         System.out.println("[returnedMessage]：" + returned.getMessage());
         System.out.println("[returnedMessage]：" + returned.getExchange());
         System.out.println("[returnedMessage]：" + returned.getRoutingKey());

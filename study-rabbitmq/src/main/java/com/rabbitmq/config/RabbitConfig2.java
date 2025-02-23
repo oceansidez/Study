@@ -31,7 +31,7 @@ public class RabbitConfig2 {
     }
 
     /**
-     * 创建死信队列
+     * 指定死信交换机
      *
      * @return
      */

@@ -1,5 +1,6 @@
 package com.rabbitmq;
 
+import com.rabbitmq.sender.MessageDLXSender;
 import com.rabbitmq.sender.MessageSender;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
@@ -41,4 +42,22 @@ class RabbitmqApplicationTests {
         messageSender.sendMessage2(message);
         System.out.println("消息发送完毕");
     }
+
+
+    /**
+     * 测试死信队列
+     */
+    @Resource
+    private MessageDLXSender messageDLXSender;
+    /**
+     * 发送消息到 direct.exchange
+     * @throws Exception
+     */
+    @Test
+    void contextLoads2() throws Exception {
+        for (int i = 0; i < 100; i++) {
+            messageDLXSender.sendMessage();
+        }
+    }
+
 }
