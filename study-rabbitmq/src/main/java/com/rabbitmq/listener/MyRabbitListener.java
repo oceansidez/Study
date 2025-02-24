@@ -5,6 +5,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.config.RabbitConfig2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.stereotype.Component;
@@ -42,7 +45,10 @@ public class MyRabbitListener {
     AtomicInteger atomicInteger2 = new AtomicInteger(0);
 
     // 处理普通队列消息
-    @RabbitListener(queues = {RabbitConfig2.QUEUE_NAME})
+//    @RabbitListener(queues = {RabbitConfig2.QUEUE_NAME})
+    @RabbitListener(bindings = @QueueBinding(value = @Queue(value = RabbitConfig2.QUEUE_NAME, durable = "true "),
+            exchange = @Exchange(RabbitConfig2.EXCHANGE_NAME),
+            key = {RabbitConfig2.ROUTING_KEY_NAME}))
     public void OnMessage2(String msg, @Headers Map<String, Object> head, Message message, Channel channel) {
         try {
             int i = atomicInteger1.incrementAndGet();
